@@ -1,0 +1,27 @@
+node{
+    properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '3'))])
+    def mvnHome=tool name:"maven3.6.3"
+    stage('checkoutcode'){
+        git branch: 'development', url: 'https://github.com/TechAcademy-HPS/maven-web-application.git'
+    }
+    stage('build'){
+       sh "${mvnHome}/bin/mvn clean package"
+    }
+    /* stage('executeSonarReport'){
+       sh "${mvnHome}/bin/mvn clean sonar:sonar"
+    }
+     stage('executeNexusReport'){
+       sh "${mvnHome}/bin/mvn clean deploy"
+    }
+    stage('deployToServer'){
+       sshagent(['57907957-10fe-4fc3-8cc8-a42bcaf1e97c']) {
+    sh "scp -o StrictHostKeyChecking=no target/maven-web-application.war ec2-user@13.232.57.174:/opt/apache-tomcat-9.0.41/webapps/"
+    }
+    }
+    stage('sendemailnotificatiom'){
+        emailext body: '''Build is sucessful
+
+                          Thanks,
+                          Yoshitha M''', subject: 'Build Status', to: 'yoshithac8@gmail.com'
+    }*/
+}
