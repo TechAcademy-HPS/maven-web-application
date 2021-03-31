@@ -1,0 +1,56 @@
+pipeline{
+agent any;
+tools{
+maven 'maven3.6.3'
+}
+stages{
+stage('checkoutcode'){
+   steps{
+        git branch: 'development', url: 'https://github.com/TechAcademy-HPS/maven-web-application.git'
+        }
+    }
+stage('build'){
+steps{
+       sh "mvn clean package"
+    }
+}
+/*
+stage('executeSonarReport'){
+steps{
+    sh "mvn clean sonar:sonar"
+    }
+}
+stage('executeNexusReport'){
+steps{
+  sh "mvn clean deploy"
+    }
+}
+}
+
+options{
+timestamps()
+}
+
+post{
+success{
+emailext body: '''build over 
+
+thanks,
+Yoshitha''', subject: '', to: 'modemyoshitha@gmail.com'
+}
+failure{
+emailext body: '''build over 
+
+thanks,
+Yoshitha''', subject: '', to: 'modemyoshitha@gmail.com'
+}
+always{
+emailext body: '''build over 
+
+thanks,
+Yoshitha''', subject: '', to: 'modemyoshitha@gmail.com'
+}
+*/
+}
+
+}
