@@ -7,10 +7,13 @@ pipeline {
     }
 
     stages {
-        stage('Build') {
+        stage('checkout') {
             steps {
                 git credentialsId: 'SSHKey', url: 'https://github.com/TechAcademy-HPS/maven-web-application.git'
-
+            }
+        }
+	stage('Build') {
+            steps {
                 sh "mvn clean package"
 
             }
