@@ -1,6 +1,12 @@
 - hosts: all
   tasks:
-    - name: Test connection
+    - name: copy war file to tomcat
       copy:
         src: target/maven-web-application.war
         dest: /opt/apache-tomcat-9.0.65/webapps/maven-web-application.war
+  tasks:
+    - name: stop tomcat
+      shell: /usr/local/apache-tomcat-9.0.65/bin/shutdown.sh
+	  
+	- name: start tomcat
+      shell: /usr/local/apache-tomcat-9.0.65/bin/startup.sh
