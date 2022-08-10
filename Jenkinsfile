@@ -33,7 +33,7 @@ pipeline {
                  }
 	      }
            }
-        stage('upload to nexus') {
+       /* stage('upload to nexus') {
             steps {
                 nexusArtifactUploader artifacts: [
 				[
@@ -52,7 +52,7 @@ pipeline {
 				version: '0.0.1'
 
             }
-        }
+        }*/
 	
            stage('deploy') {
             steps {
