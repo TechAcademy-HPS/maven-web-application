@@ -21,7 +21,7 @@
 3.108.185.115 ansible_user=ec2-user ansible_password=passwd
 
 [tomcatservers]
-13.234.239.158 ansible_user=ec2-user ansible_ssh_private_key_file=~/Desktop/LTIProject/LtiAwsKeyPair.pem
+13.234.239.158 ansible_user=ec2-user ansible_ssh_private_key_file=~/LTIpemfile.pem
 
 ## alpha.example.org
 ## beta.example.org
