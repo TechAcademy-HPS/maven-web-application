@@ -18,7 +18,7 @@ pipeline {
 
             }
         }
-       /* stage('sonar') {
+        stage('sonar') {
             steps {
                 withSonarQubeEnv('SonarQube') {
                 sh "mvn sonar:sonar"
@@ -44,7 +44,7 @@ pipeline {
 				],
 				credentialsId: 'nexuscredentials',
 				groupId: 'com.mt',
-				nexusUrl: '13.234.77.182:8081',
+				nexusUrl: '3.108.61.252:8081',
 				nexusVersion: 'nexus3',
 				protocol: 'http',
 				repository: 'mavenapp',
@@ -52,7 +52,7 @@ pipeline {
 
             }
         }
-	*/
+	
            stage('deploy') {
             steps {
               ansiblePlaybook become: true, disableHostKeyChecking: true, installation: 'Ansible', inventory: 'hosts.inv', playbook: 'Deploy.yml'
