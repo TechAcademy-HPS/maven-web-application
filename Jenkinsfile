@@ -54,7 +54,7 @@ pipeline {
         }	   
            stage('deploy') {
             steps {
-              ansiblePlaybook become: true, disableHostKeyChecking: true, installation: 'Ansible', inventory: 'hosts.inv', playbook: 'Deploy.yml'
+              ansiblePlaybook become: true, disableHostKeyChecking: true, installation: 'Ansible', inventory: 'hosts.inv', playbook: 'tomcatservice.yml'
                  }
             }
 			
