@@ -18,7 +18,7 @@ pipeline {
 
             }
         }
-        stage('sonar') {
+       /* stage('sonar') {
             steps {
                 withSonarQubeEnv('SonarQube') {
                 sh "mvn sonar:sonar"
@@ -51,7 +51,8 @@ pipeline {
 				version: '0.0.1'
 
             }
-        }	   
+        }
+	*/
            stage('deploy') {
             steps {
               ansiblePlaybook become: true, disableHostKeyChecking: true, installation: 'Ansible', inventory: 'hosts.inv', playbook: 'tomcatservice.yml'
