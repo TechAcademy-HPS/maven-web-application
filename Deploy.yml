@@ -1,17 +1,13 @@
 - hosts: all
-  gather_facts: False
   tasks:
-    - name: copy war file to tomcat
+    - name: cp war file to tomcat
       copy:
         src: target/maven-web-application.war
         dest: /usr/local/tomcat7/webapps/maven-web-application.war
-  tasks:
     - name: Stop tomcat 
       service: 
           name=tomcat
           state=stopped 
-          
-  tasks:
     - name: start tomcat 
       service: 
           name=tomcat
