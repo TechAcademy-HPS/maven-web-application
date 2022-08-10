@@ -1,4 +1,4 @@
-- hosts: 13.234.239.158
+- hosts: tomcatservers
   become: true
   tasks:
     - name: Install Java
